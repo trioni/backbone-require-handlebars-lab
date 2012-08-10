@@ -4,7 +4,7 @@ This is just a labs repo trying to tie togather various parts of a SPA ( Single 
 ## Making it work
 This demo app uses the last.fm API to load data. To be able to make requests you will need an apikey.
 
-* [Apply for a Last.fm]( http://www.last.fm/api )
+* [Apply for one at Last.fm]( http://www.last.fm/api )
 * Create a new file `js/private/keys.js` with the following content
 
 ```javascript
