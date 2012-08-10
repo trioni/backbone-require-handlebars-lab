@@ -1,0 +1,8 @@
+<script id="filterView" type="text/x-handlebars-template">
+	<h2>{{label}}</h2>
+	<ul>
+	{{#each filter}}
+		<li{{selectedFilter}}><a href="{{base}}/{{action}}">{{name}}</a></li>
+	{{/each}}
+	</ul>
+</script>
