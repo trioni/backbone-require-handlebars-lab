@@ -3,23 +3,10 @@ define([
 	'underscore',
 	'backbone',
 	'handlebars',
-	'text!../../templates/search.html'
+	'text!../../templates/search.html',
+	'config',
+	'helpers'
 ], function($, _, Backbone, Handlebars, viewTemplate){
-
-	var appConfig = {
-		defaultSortOrder: "listeners"
-	};
-
-	Handlebars.registerHelper('selectedFilter', function(){
-		var currentSortOrder = common.getResultSortOrder(),
-			classes = false;
-
-		if(this.action === currentSortOrder || (this.action === appConfig.defaultSortOrder && currentSortOrder === "")) {
-			classes = "selected";
-		}
-		// getResultSortOrder();
-		return (classes) ? " class=" + classes : "";
-	});
 
 	var SearchView = Backbone.View.extend({
 		defaults: {

@@ -4,18 +4,10 @@ define([
 	'handlebars',
 	'backbone',
 	'views/resultfilter',
-	'text!../../../templates/lists/result.html'
-], function($, _, Handlebars, Backbone, FilterView, viewTemplate){
-
-	Handlebars.registerHelper('popular', function(listeners, context){
-		var mostListeners = context.collection.getMax().listeners,
-			prefix ='';
-		if(listeners == mostListeners) {
-			prefix = "most ";
-		}
-
-		return (listeners > 1000) ? ' class="'+ prefix +'popular"' : '';
-	});
+	'text!../../../templates/lists/result.html',
+	'config',
+	'helpers'
+], function($, _, Handlebars, Backbone, FilterView, viewTemplate, config){
 
 	var ResultView = Backbone.View.extend({
 		defaults: {

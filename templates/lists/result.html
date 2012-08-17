@@ -1,16 +1,16 @@
-<script id="resultView" type="text/x-handlebars-template">
-	<h2>{{label}} ( {{artist.length}} ) {{prefix}} {{query}}</h2>
-	{{#if artist}}
-		<ul class="results">
-		{{#each artist}}
-			<li{{{popular listeners ..}}} data-cid="{{cid}}">
-			{{#if cover}}
-			<img src="{{cover}}" />
-			{{/if}}
-			<a href="{{url}}">{{name}}</a> <small class="count">{{listeners}}</small></li>
-		{{/each}}
-		</ul>
-	{{else}}
-		<p>No results</p>
-	{{/if}}
+<script id="filterView" type="text/x-handlebars-template">
+<h2>{{label}} ( {{artist.length}} ) {{prefix}} {{query}}</h2>
+{{#if artist}}
+	<ul class="results">
+	{{#each artist}}
+		<li{{{popular listeners ..}}} data-cid="{{cid}}">
+		{{#if cover}}
+		<img src="{{cover}}" />
+		{{/if}}
+		<a href="{{url}}">{{name}}</a> <small class="count">{{listeners}}</small></li>
+	{{/each}}
+	</ul>
+{{else}}
+	<p>No results</p>
+{{/if}}
 </script>
