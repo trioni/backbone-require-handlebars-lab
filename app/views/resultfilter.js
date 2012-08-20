@@ -3,7 +3,7 @@ define([
 	'underscore',
 	'handlebars',
 	'backbone',
-	'text!../../templates/resultfilter.html'
+	'text!../templates/resultfilter.html'
 ], function($, _, Handlebars, Backbone, viewTemplate){
 
 	var FilterView = Backbone.View.extend({

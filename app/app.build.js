@@ -1,8 +1,7 @@
 ({
-    appDir: "../",
-    baseUrl: "js",
+    appDir: ".",
+    baseUrl: ".",
     mainConfigFile: 'boot.js',
-    fileExclusionRegExp: /^node_modules/,
     dir: "../../backbone-modules-build",
     modules: [{
         name: "boot"

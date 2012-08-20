@@ -4,10 +4,10 @@ require.config({
 		jquery: 'libs/jquery/jquery-min',
 		underscore: 'libs/underscore/1.3.1-amdjs/underscore', // AMD Support
 		handlebars: 'libs/handlebars/amd/Handlebars', // AMD Support
-		// backbone: 'libs/backbone/0.9.1-amdjs/backbone', // AMD Support
-		backbone: 'libs/backbone/backbone',
+		backbone: 'libs/backbone/backbone', // Standard. No AMD support
 		'backbone.params': 'libs/backbone/plugins/backbone.queryparams',
-		text: 'libs/require/text'
+		text: 'libs/require/text',
+		hbs: 'hbs'
 	},
 	// The shim section is used to load scripts that doesn't support AMD
 	// and make sure their dependencies is loaded before executing the plugin.
@@ -19,7 +19,7 @@ require.config({
             exports: 'Backbone'			
 		},
 		'backbone.params':['backbone']
-	}		
+	}
 });
 
 require([
@@ -29,5 +29,4 @@ require([
 	App.config = {
 		defaultSortOrder: "listeners"
 	};
-	console.log("Hello? Yes, this is App", App);
 });

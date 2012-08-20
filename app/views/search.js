@@ -3,8 +3,8 @@ define([
 	'underscore',
 	'backbone',
 	'handlebars',
-	'text!../../templates/search.html',
-	'config',
+	'text!../templates/search.html',
+	// 'hbs!../templates/search',
 	'helpers'
 ], function($, _, Backbone, Handlebars, viewTemplate){
 

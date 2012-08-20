@@ -4,7 +4,7 @@ define([
 	'handlebars',
 	'backbone',
 	'views/resultfilter',
-	'text!../../../templates/lists/result.html',
+	'text!../../templates/lists/result.html',
 	'config',
 	'helpers'
 ], function($, _, Handlebars, Backbone, FilterView, viewTemplate, config){
