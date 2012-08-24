@@ -1,16 +1,14 @@
-<script id="filterView" type="text/x-handlebars-template">
-<h2>{{label}} ( {{artist.length}} ) {{prefix}} {{query}}</h2>
-{{#if artist}}
+<h2><%= label %> ( <%= artists.length %> ) <%= prefix %> <%= query %></h2>
+<% if(artists) { %>
 	<ul class="results">
-	{{#each artist}}
-		<li{{{popular listeners ..}}} data-cid="{{cid}}">
-		{{#if cover}}
-		<img src="{{cover}}" />
-		{{/if}}
-		<a href="{{url}}">{{name}}</a> <small class="count">{{listeners}}</small></li>
-	{{/each}}
+	<% _.each(artists, function(artist){ %>
+		<li<%= popular(artist.listeners, collection) %> data-cid="<%= artist.cid %>">
+		<% if(artist.cover) { %>
+			<img src="<%- artist.cover() %>" />
+		<% } %>
+		<a href="<%= artist.url %>"><%= artist.name %></a> <small class="count"><%= artist.listeners %></small></li>		
+	<% }) %>
 	</ul>
-{{else}}
+<% } else { %>
 	<p>No results</p>
-{{/if}}
-</script>
+<% } %>

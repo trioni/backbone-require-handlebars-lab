@@ -3,11 +3,10 @@ require.config({
 	paths: {
 		jquery: 'libs/jquery/jquery-min',
 		underscore: 'libs/underscore/1.3.1-amdjs/underscore', // AMD Support
-		handlebars: 'libs/handlebars/amd/Handlebars', // AMD Support
 		backbone: 'libs/backbone/backbone', // Standard. No AMD support
+		viewhelpers: 'templates/helpers/viewhelpers',
 		'backbone.params': 'libs/backbone/plugins/backbone.queryparams',
 		text: 'libs/require/text',
-		hbs: 'hbs'
 	},
 	// The shim section is used to load scripts that doesn't support AMD
 	// and make sure their dependencies is loaded before executing the plugin.

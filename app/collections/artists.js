@@ -4,7 +4,6 @@ define([
 	'models/artist',
 	'private/keys'
 ], function(Backbone, _, Artist, Keys){
-	console.log("Keys",Keys);
 
 	var Artists = Backbone.Collection.extend({
 		model: Artist,

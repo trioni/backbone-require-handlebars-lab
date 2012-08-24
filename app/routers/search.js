@@ -1,12 +1,11 @@
 define([
 	'jquery',
 	'underscore',
-	'handlebars',
 	'backbone',
 	'views/search',
 	'views/lists/result',
 	'collections/artists'	
-], function($, _, Handlebars, Backbone, SearchView, ResultView, Artists){
+], function($, _, Backbone, SearchView, ResultView, Artists){
 
 	var SearchController = Backbone.Router.extend({
 		routes: {

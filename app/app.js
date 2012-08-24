@@ -1,11 +1,10 @@
 define([
 	'jquery',
 	'underscore',
-	'handlebars',
 	'backbone',
 	'routers/search',
 	'backbone.params'
-],function($, _, Handlebars, Backbone, SearchController) {
+],function($, _, Backbone, SearchController) {
 
 	var App = App || {};
 	App.initialize = function() {

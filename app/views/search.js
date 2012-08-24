@@ -2,22 +2,20 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
-	'handlebars',
 	'text!../templates/search.html',
-	// 'hbs!../templates/search',
-	'helpers'
-], function($, _, Backbone, Handlebars, viewTemplate){
+], function($, _, Backbone, viewTemplate){
 
 	var SearchView = Backbone.View.extend({
 		defaults: {
 			label: "Search on Last.fm"
 		},
+		template: null,
 		initialize: function() {
+			this.template = _.template(viewTemplate);
 			this.render();
 		},
 		render: function() {
-			var template = Handlebars.compile($(viewTemplate).html());
-			$(this.el).html(template(this.defaults));
+			$(this.el).html(this.template(this.defaults));
 			return this;
 		},		
 		events: {

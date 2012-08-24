@@ -1,13 +1,12 @@
 define([
 	'jquery',
 	'underscore',
-	'handlebars',
 	'backbone',
 	'views/resultfilter',
 	'text!../../templates/lists/result.html',
 	'config',
-	'helpers'
-], function($, _, Handlebars, Backbone, FilterView, viewTemplate, config){
+	'viewhelpers'
+], function($, _, Backbone, FilterView, viewTemplate, config, viewHelpers){
 
 	var ResultView = Backbone.View.extend({
 		defaults: {
@@ -15,9 +14,11 @@ define([
 			collection: false
 		},
 		_term: "empty",
+		template: null,
 		initialize: function() {
 			_.extend(this.defaults,this.defaults,this.options);
 
+			this.template = _.template(viewTemplate);
 			// Listen for reset, when new data is fetched from endpoint
 			this.collection.on("reset", this.render, this);	
 			this.filterView = new FilterView();
@@ -39,6 +40,7 @@ define([
 			this.$el.find('#loader').remove();
 		},
 		render: function(collection,search) {
+			var data;
 
 			this.setLoading(false);
 
@@ -46,14 +48,18 @@ define([
 				this._term = search.data.split("=")[1];
 			}
 
-			var template = Handlebars.compile($(viewTemplate).html());
-			$(this.el).html(template({
+			data = {
 				label:this.defaults.label,
-				artist:collection.models,
+				artists: collection.models,
 				prefix: "för ",
 				query: this._term.toString().decodeSearchUri(),
-				collection:collection // Makes the collection avaiable in helpers
-			}));
+				collection: collection
+			};
+
+			// Make the viewHelpers available in the template
+			_.extend(data, viewHelpers);
+			var templateHtml = this.template(data);
+			$(this.el).html(templateHtml);
 
 			var segments = "#search/" + this._term.toString().urlify();
 			this.filterView.render(segments);
